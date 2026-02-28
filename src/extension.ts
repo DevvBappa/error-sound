@@ -4,9 +4,9 @@ import * as fs from 'fs';
 import * as os from 'os';
 import { execFile } from 'child_process';
 
-const DEBOUNCE_MS = 1500;
-const COOLDOWN_MS = 3000;
-const PROBE_TIMEOUT_MS = 1200;
+const DEBOUNCE_MS = 1000;
+const COOLDOWN_MS = 1000;
+const PROBE_TIMEOUT_MS = 500;
 const PROBE_FILE = path.join(os.tmpdir(), 'errorsound_lastexitcode.txt');
 
 interface TerminalBatch {

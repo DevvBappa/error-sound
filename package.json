@@ -3,6 +3,7 @@
   "displayName": "error sound",
   "description": "",
   "version": "0.0.1",
+  "publisher": "devvBappa",
   "engines": {
     "vscode": "^1.109.0"
   },
