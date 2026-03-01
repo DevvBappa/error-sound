@@ -44,6 +44,13 @@ This extension does not contribute any configurable settings currently.
 - Sound playback relies on PowerShell and is **Windows only** in the current implementation
 - Shell integration must be active in the terminal for exit codes to be captured; some custom shell setups may disable it
 
+### Virtual Environment (venv) Issues
+
+- **Activation not always filtered** — On Windows, activating a venv using `.\venv\Scripts\activate` (without `source`) may not be caught by the plumbing filter, potentially triggering a false success sound
+- **False error on first activation** — In some PowerShell setups, the venv activation script exits with a non-zero code due to execution policy warnings or conda conflicts, causing a false `fahhh` sound even though the environment activated fine
+- **`$LASTEXITCODE` pollution** — After running a Python script inside a venv, `$LASTEXITCODE` can retain the exit code of a previous command if the venv's Python wrapper doesn't properly set it, leading to inaccurate exit code probing
+- **Deactivation** — Running `deactivate` is filtered out correctly, but if your shell aliases or scripts wrap `deactivate`, those may slip through and trigger sounds
+
 ## Release Notes
 
 ### 1.0.0
